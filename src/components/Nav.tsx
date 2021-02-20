@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import React from "react";
+import chart from 'icons/chart.svg';
 
 const NavWrapper = styled.div`
   border: 1px solid black;
@@ -12,6 +13,9 @@ const NavWrapper = styled.div`
     display: flex;
 
     > li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 33.33333%;
     }
   }
@@ -22,6 +26,7 @@ function Nav() {
         <NavWrapper>
             <ul>
                 <li>
+                    <img src={chart} width={20}/>
                     <Link to="/label">标签</Link>
                 </li>
                 <li>
