@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import React from "react";
-import chart from 'icons/chart.svg';
+import Icons from "./Icons";
 
 const NavWrapper = styled.div`
   border: 1px solid black;
   text-align: center;
-  padding: 16px;
+  padding: 5px;
   line-height: 22px;
   box-shadow: 0 0 3px rgba(0,0,0,0.25);
   > ul {
@@ -26,13 +26,15 @@ function Nav() {
         <NavWrapper>
             <ul>
                 <li>
-                    <img src={chart} width={20}/>
+                    <Icons name='tag'/>
                     <Link to="/label">标签</Link>
                 </li>
                 <li>
+                    <Icons name={'money'}/>
                     <Link to="/money">记一笔</Link>
                 </li>
                 <li>
+                    <Icons name={'chart'}/>
                     <Link to="/statistic">统计</Link>
                 </li>
             </ul>
