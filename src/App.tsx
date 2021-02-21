@@ -1,18 +1,31 @@
 import React from 'react';
 import {
-    BrowserRouter as Router,
+    BrowserRouter as Router, Redirect, Route, Switch, useLocation,
 } from "react-router-dom";
-import Nav from "./components/Nav";
-import Main from "./components/Main";
-import Wrapper from "./components/Wrapper";
+
+import NoMatch from "./views/NoMatch";
+import Statistic from "./views/Statistic";
+import Money from "./views/Money";
+import Label from "./views/Label";
 
 function App() {
     return (
         <Router>
-            <Wrapper>
-                <Main/>
-                <Nav/>
-            </Wrapper>
+            <Switch>
+                <Route path="/label">
+                    <Label/>
+                </Route>
+                <Route path="/money">
+                    <Money/>
+                </Route>
+                <Route path="/statistic">
+                    <Statistic/>
+                </Route>
+                <Redirect exact from="/" to="statistic"/>
+                <Route path="*">
+                    <NoMatch/>
+                </Route>
+            </Switch>
         </Router>
     );
 }
