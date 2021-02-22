@@ -20,9 +20,9 @@ const NavWrapper = styled.div`
         flex-direction: column;
         align-items: center;
         &.selected {
-          color: red;
+          color: #9a9a9a;
           .icons{
-            fill: red;
+            fill: #9a9a9a;
           }
         }
       }
