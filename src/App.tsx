@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-    BrowserRouter as Router, Redirect, Route, Switch, useLocation,
+    BrowserRouter as Router, Redirect, Route, Switch,
 } from "react-router-dom";
 
-import NoMatch from "./views/NoMatch";
-import Statistic from "./views/Statistic";
-import Money from "./views/Money";
-import Label from "./views/Label";
+import NoMatch from "views/NoMatch";
+import Statistic from "views/Statistic";
+import Money from "views/Money";
+import Label from "views/Label";
 
 function App() {
     return (
