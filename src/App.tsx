@@ -8,6 +8,7 @@ import Statistic from "views/Statistic";
 import Money from "views/Money";
 import Label from "views/Label";
 
+
 function App() {
     return (
         <Router>

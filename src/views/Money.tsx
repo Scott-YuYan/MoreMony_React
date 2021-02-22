@@ -150,7 +150,6 @@ const NumberPadSection = styled.section`
       width: 50%;
     }
   }
-`
 
 function Money() {
     return (
