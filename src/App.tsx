@@ -7,6 +7,10 @@ import NoMatch from "views/NoMatch";
 import Statistic from "views/Statistic";
 import Money from "views/Money";
 import Label from "views/Label";
+<<<<<<< HEAD
+=======
+
+>>>>>>> yy
 
 function App() {
     return (

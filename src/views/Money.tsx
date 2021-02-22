@@ -17,6 +17,7 @@ const TagsSection = styled.section`
   flex-grow: 1;
   
   > ol {
+    
     margin: 0px -12px;
 
     > li {

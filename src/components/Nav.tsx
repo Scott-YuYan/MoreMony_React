@@ -19,10 +19,6 @@ const NavWrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-<<<<<<< HEAD
-
-=======
->>>>>>> 53a3a4bc67eb65fdd34ff8aaf44357468c583f0e
         &.selected {
           color: red;
           .icons{
