@@ -16,7 +16,7 @@ function App() {
                 <Route exact path="/label">
                     <Label/>
                 </Route>
-                <Route exact path="/label/:label">
+                <Route exact path="/label/:id">
                     <LabelEdit/>
                 </Route>
                 <Route exact path="/money">

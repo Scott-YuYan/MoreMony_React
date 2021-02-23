@@ -1,6 +1,7 @@
 import React from "react";
 import useState from 'useStage';
 import {TagSectionWrapper} from "./Wrapper/TagSectionWrapper";
+import createId from "lib/createId";
 
 type Props = {
     value: number[];
@@ -8,12 +9,12 @@ type Props = {
 }
 
 const TagsSection: React.FunctionComponent<Props> = (props) => {
-    const {tagIds,setTags} = useState();
+    const {tagIds, setTags} = useState();
     const selectedTags = props.value;
     const addTags = () => {
         const newTagName = window.prompt("请选择需要添加的标签");
         if (newTagName !== null) {
-            setTags([...tagIds, {id:Math.random(),name:newTagName}])
+            setTags([...tagIds, {id: createId(), name: newTagName}])
         }
     };
     const onToggleTag = (tagId: number) => {
@@ -25,7 +26,7 @@ const TagsSection: React.FunctionComponent<Props> = (props) => {
         }
     };
 
-    const selectedStyle = (tagId:number)=>{
+    const selectedStyle = (tagId: number) => {
         return selectedTags.indexOf(tagId) >= 0 ? 'selected' : '';
     }
     return (

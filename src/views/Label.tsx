@@ -34,7 +34,7 @@ function Label() {
             <LabelWrapper>
                 {tagIds.map(tag =>
                     <li key={tag.id}>
-                        <Link to={'/label/' + tag.name}>
+                        <Link to={'/label/' + tag.id}>
                             <span className='oneLine'>{tag.name}</span>
                             <Icons name={'right'}/>
                         </Link>
