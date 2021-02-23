@@ -33,18 +33,24 @@ body {
   line-height: 1.2;
 }
 
-.icons{
+.icons {
   width: 22px;
   height: 22px;
   display: inline-block;
 }
 
-:focus{
+:focus {
   outline: none;
 }
 
-.clearfix:after{
+.clearfix:after {
   content: '';
   display: block;
   clear: both;
+}
+
+.oneLine {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
