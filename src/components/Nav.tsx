@@ -19,10 +19,20 @@ const NavWrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        &.selected {
+
+        &.test {
           color: #9a9a9a;
-          .icons{
+
+          .icons {
             fill: #9a9a9a;
+          }
+        }
+
+        &.selected {
+          color: #000000;
+
+          .icons {
+            fill: #000000;
           }
         }
       }
@@ -36,13 +46,16 @@ function Nav() {
         <NavWrapper>
             <ul>
                 <li>
-                    <NavLink to="/label" activeClassName="selected"><Icons name='tag'/>标签</NavLink>
+                    <NavLink to="/label" className='test' activeClassName="selected">
+                        <Icons name='tag'/>标签</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/money" activeClassName="selected"><Icons name={'money'}/>记一笔</NavLink>
+                    <NavLink to="/money" className='test' activeClassName="selected">
+                        <Icons name={'money'}/>记一笔</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/statistic" activeClassName="selected"><Icons name={'chart'}/>统计</NavLink>
+                    <NavLink to="/statistic" className='test' activeClassName="selected">
+                        <Icons name={'chart'}/>统计</NavLink>
                 </li>
             </ul>
         </NavWrapper>

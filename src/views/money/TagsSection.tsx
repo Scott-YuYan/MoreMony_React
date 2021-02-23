@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
+import useState from 'useStage';
 import {TagSectionWrapper} from "./Wrapper/TagSectionWrapper";
 
 type Props = {
@@ -7,7 +8,7 @@ type Props = {
 }
 
 const TagsSection: React.FunctionComponent<Props> = (props) => {
-    const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
+    const {tags,setTags} = useState();
     const selectedTags = props.value;
     const addTags = () => {
         const newTagName = window.prompt("请选择需要添加的标签");
