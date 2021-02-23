@@ -7,18 +7,22 @@ import NoMatch from "views/NoMatch";
 import Statistic from "views/Statistic";
 import Money from "views/Money";
 import Label from "views/Label";
+import LabelEdit from "./views/LabelEdit";
 
 function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/label">
+                <Route exact path="/label">
                     <Label/>
                 </Route>
-                <Route path="/money">
+                <Route exact path="/label/:label">
+                    <LabelEdit/>
+                </Route>
+                <Route exact path="/money">
                     <Money/>
                 </Route>
-                <Route path="/statistic">
+                <Route exact path="/statistic">
                     <Statistic/>
                 </Route>
                 <Redirect exact from="/" to="statistic"/>

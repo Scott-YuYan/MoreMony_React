@@ -6,6 +6,7 @@ import Icons from "../components/Icons";
 import WhiteSpace from "../components/WhiteSpace";
 import Center from "../components/Center";
 import Button from "../components/Button";
+import {Link} from "react-router-dom";
 
 const LabelWrapper = styled.ol`
   font-size: 16px;
@@ -14,12 +15,15 @@ const LabelWrapper = styled.ol`
   > li {
     border-bottom: 1px solid #d5d5d9;
     line-height: 20px;
-    padding: 12px 16px 12px 12px;
     margin-left: 12px;
     margin-right: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
+
+    > a {
+      padding: 12px 16px 12px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+    }
   }
 `
 
@@ -30,8 +34,10 @@ function Label() {
             <LabelWrapper>
                 {tags.map(tag =>
                     <li key={tag}>
-                        <span className='oneLine'>{tag}</span>
-                        <Icons name={'right'}/>
+                        <Link to={'/label/'+tag}>
+                            <span className='oneLine'>{tag}</span>
+                            <Icons name={'right'}/>
+                        </Link>
                     </li>
                 )}
             </LabelWrapper>
