@@ -3,37 +3,37 @@ import useState from 'useStage';
 import {TagSectionWrapper} from "./Wrapper/TagSectionWrapper";
 
 type Props = {
-    value: string[];
-    onchange: (selected: string[]) => void
+    value: number[];
+    onchange: (selected: number[]) => void
 }
 
 const TagsSection: React.FunctionComponent<Props> = (props) => {
-    const {tags,setTags} = useState();
+    const {tagIds,setTags} = useState();
     const selectedTags = props.value;
     const addTags = () => {
         const newTagName = window.prompt("请选择需要添加的标签");
         if (newTagName !== null) {
-            setTags([...tags, newTagName])
+            setTags([...tagIds, {id:Math.random(),name:newTagName}])
         }
     };
-    const onToggleTag = (tag: string) => {
-        if (selectedTags.indexOf(tag) >= 0) {
+    const onToggleTag = (tagId: number) => {
+        if (selectedTags.indexOf(tagId) >= 0) {
             //如果tag被选中，则取消该选中，需要将其他选中被选中的标签加到选中的数组中
-            props.onchange(selectedTags.filter(t => (t !== tag)));
+            props.onchange(selectedTags.filter(t => (t !== tagId)));
         } else {
-            props.onchange([...selectedTags, tag]);
+            props.onchange([...selectedTags, tagId]);
         }
     };
 
-    const selectedStyle = (tag:string)=>{
-        return selectedTags.indexOf(tag) >= 0 ? 'selected' : '';
+    const selectedStyle = (tagId:number)=>{
+        return selectedTags.indexOf(tagId) >= 0 ? 'selected' : '';
     }
     return (
         <TagSectionWrapper>
-            <ol>{tags.map((tag) =>
-                <li key={tag} onClick={() => {
-                    onToggleTag(tag)
-                }} className={selectedStyle(tag)}>{tag}</li>
+            <ol>{tagIds.map((tag) =>
+                <li key={tag.id} onClick={() => {
+                    onToggleTag(tag.id)
+                }} className={selectedStyle(tag.id)}>{tag.name}</li>
             )
             }
             </ol>

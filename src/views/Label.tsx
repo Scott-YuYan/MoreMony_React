@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
 import React from "react";
-import useState from "../useStage";
+import useState from "useStage";
 import styled from "styled-components";
 import Icons from "../components/Icons";
 import WhiteSpace from "../components/WhiteSpace";
@@ -28,14 +28,14 @@ const LabelWrapper = styled.ol`
 `
 
 function Label() {
-    const {tags, setTags} = useState();
+    const {tagIds, setTags} = useState();
     return (
         <Layout>
             <LabelWrapper>
-                {tags.map(tag =>
-                    <li key={tag}>
-                        <Link to={'/label/'+tag}>
-                            <span className='oneLine'>{tag}</span>
+                {tagIds.map(tag =>
+                    <li key={tag.id}>
+                        <Link to={'/label/' + tag.name}>
+                            <span className='oneLine'>{tag.name}</span>
                             <Icons name={'right'}/>
                         </Link>
                     </li>
