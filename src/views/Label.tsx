@@ -3,10 +3,16 @@ import React from "react";
 import useState from "../useStage";
 
 function Label() {
-    const {tags,setTags} = useState();
+    const {tags, setTags} = useState();
     return (
         <Layout>
-            <h2>标签</h2>
+            {
+                <ol>
+                    {tags.map(tag =>
+                        <li key={tag}>{tag}</li>
+                    )}
+                </ol>
+            }
         </Layout>
     );
 }
