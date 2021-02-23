@@ -1,45 +1,14 @@
-import styled from "styled-components";
 import React, {useState} from "react";
+import {TagSectionWrapper} from "./Wrapper/TagSectionWrapper";
 
-const TagSectionWrapper = styled.section`
-  background-color: #FFF;
-  padding: 12px 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  flex-grow: 1;
+type Props = {
+    value: string[];
+    onchange: (selected: string[]) => void
+}
 
-  > ol {
-
-    margin: 0px -12px;
-
-    > li {
-      display: inline-block;
-      background: #D9D9D9;
-      border-radius: 18px;
-      padding: 3px 18px;
-      margin: 8px 12px;
-      font-size: 14px;
-      &.selected {
-        background: #9b9b9b;
-      }
-    }
-  }
-
-  > button {
-    background: none;
-    border: none;
-    padding: 2px 4px;
-    border-bottom: 1px solid #333;
-    color: #666;
-    margin-top: 12px;
-  }
-`
-
-const TagsSection: React.FunctionComponent = () => {
+const TagsSection: React.FunctionComponent<Props> = (props) => {
     const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
-    const [selectedTags, setSelectedTags] = useState<string[]>([]);
+    const selectedTags = props.value;
     const addTags = () => {
         const newTagName = window.prompt("请选择需要添加的标签");
         if (newTagName !== null) {
@@ -49,9 +18,9 @@ const TagsSection: React.FunctionComponent = () => {
     const onToggleTag = (tag: string) => {
         if (selectedTags.indexOf(tag) >= 0) {
             //如果tag被选中，则取消该选中，需要将其他选中被选中的标签加到选中的数组中
-            setSelectedTags(selectedTags.filter(t => (t !== tag)));
+            props.onchange(selectedTags.filter(t => (t !== tag)));
         } else {
-            setSelectedTags([...selectedTags, tag]);
+            props.onchange([...selectedTags, tag]);
         }
     };
 
