@@ -10,9 +10,13 @@ const initState = [
 
 const useTags = () => {//封装一个自定义的Hook接口
     const [tags, setTags] = useState<{ id: number; name: string }[]>(initState);
+    const findTagsById = (id: number) => {
+       return tags.filter((tag) => tag.id === id)[0];
+    }
     return {
         tagIds: tags,
-        setTags: setTags
+        setTags: setTags,
+        findTagsById:findTagsById
     }
 }
 export default useTags;
