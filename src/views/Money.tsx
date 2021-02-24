@@ -14,28 +14,31 @@ const MyLayout = styled(Layout)`
 
 type Category = '-' | '+';
 
+const defaultFormData = {
+    tagIds: [] as number[],
+    note: '',
+    category: '-' as Category,
+    amount: 0,
+}
+
+
 function Money() {
-    const [selected, setSelected] = useState({
-        tagIds: [] as number[],
-        note: '',
-        category: '-' as Category,
-        amount: 0
-    });
+    const [selected, setSelected] = useState(defaultFormData);
     const onchange = (obj: Partial<typeof selected>) => {
         setSelected({
             ...selected, ...obj
         })
     };
-    const {records, addRecord} = useRecords();
+    const {records, addRecord, setRecord} = useRecords();
     const onSubmit = () => {
-        addRecord(selected)
+        if (addRecord(selected)) {
+            alert("保存成功!");
+            setSelected(defaultFormData);
+        }
     }
     return (
         <MyLayout>
-            {selected.tagIds.join(',')}
-            {selected.note}
-            {selected.category}
-            {selected.amount}
+            {JSON.stringify(records)}
             <TagsSection value={selected.tagIds} onchange={(tagIds) =>
                 onchange({tagIds: tagIds})}/>
             <NotesSection value={selected.note} onchange={(note) =>

@@ -9,7 +9,7 @@ type Props = {
 
 const NotesSection: React.FunctionComponent<Props> = (props) => {
     //用useRef获取内容
-    const refInput = useRef<HTMLInputElement>(null);
+    const refInput = useRef<HTMLInputElement>();
     const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
         if (refInput.current !== null) {
             props.onchange(event.target.value);
@@ -26,6 +26,7 @@ const NotesSection: React.FunctionComponent<Props> = (props) => {
             {/*受控组件*/}
             <Input label='备注' type='text' placeholder="在这里添加备注" value={props.value}
                    onChange={onChange}/>
+
         </NotesSectionWrapper>
     );
 }
