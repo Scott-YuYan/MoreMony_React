@@ -20,24 +20,17 @@ const useTags = () => {//封装一个自定义的Hook接口
             }
         }
         return -1;
-    }
+    };
+
     const updateTags = (id: number, obj: { name: string }) => {
-        const index = findTagsById(id);
-        //深拷贝tags得到tagsClone
-        const tagClone = JSON.parse(JSON.stringify(tags));
-        //替换对应位置的旧对象
-        tagClone.splice(index, 1, {id: id, name: obj.name})
-        //React中强调不可变数据，所以不能直接修改原数组
-        setTags(tagClone);
-    }
+        setTags(tags.map(
+            tag => (tag.id === id) ? {id: id, name: obj.name} : tag
+        ));
+    };
 
     const deleteTags = (id: number) => {
-        const index = findTagIndexById(id);
-        const tagClone = JSON.parse(JSON.stringify(tags));
-        tagClone.splice(index, 1);
-        setTags(tagClone);
-        console.log(tagClone);
-    }
+        setTags(tags.filter(tag => tag.id !== id));
+    };
     return {
         tagIds: tags,
         setTags: setTags,

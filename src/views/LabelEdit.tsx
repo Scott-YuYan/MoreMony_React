@@ -67,7 +67,7 @@ const LabelEdit: React.FunctionComponent = (props) => {
             </Layout>
         );
     } else {
-        return <div>标签不存在</div>
+        return <Center>标签不存在</Center>
     }
 };
 
