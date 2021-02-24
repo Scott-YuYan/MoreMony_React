@@ -46,15 +46,15 @@ function Nav() {
         <NavWrapper>
             <ul>
                 <li>
-                    <NavLink to="/label" className='test' activeClassName="selected">
+                    <NavLink to="/label" exact className='test' activeClassName="selected">
                         <Icons name='tag'/>标签</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/money" className='test' activeClassName="selected">
+                    <NavLink to="/money" exact className='test' activeClassName="selected">
                         <Icons name={'money'}/>记一笔</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/statistic" className='test' activeClassName="selected">
+                    <NavLink to="/statistic" exact className='test' activeClassName="selected">
                         <Icons name={'chart'}/>统计</NavLink>
                 </li>
             </ul>
