@@ -27,14 +27,24 @@ const useTags = () => {//封装一个自定义的Hook接口
         const tagClone = JSON.parse(JSON.stringify(tags));
         //替换对应位置的旧对象
         tagClone.splice(index, 1, {id: id, name: obj.name})
+        //React中强调不可变数据，所以不能直接修改原数组
         setTags(tagClone);
+    }
+
+    const deleteTags = (id: number) => {
+        const index = findTagIndexById(id);
+        const tagClone = JSON.parse(JSON.stringify(tags));
+        tagClone.splice(index, 1);
+        setTags(tagClone);
+        console.log(tagClone);
     }
     return {
         tagIds: tags,
         setTags: setTags,
         findTagsById: findTagsById,
         findTagIndexById: findTagIndexById,
-        updateTags: updateTags
+        updateTags: updateTags,
+        deleteTags: deleteTags
     }
 }
 export default useTags;

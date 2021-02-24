@@ -32,36 +32,43 @@ const InputWrapper = styled.div`
 `
 
 const LabelEdit: React.FunctionComponent = (props) => {
-    const {findTagsById, updateTags} = useTags();
+    const {findTagsById, updateTags, deleteTags} = useTags();
     let {id} = useParams<Params>();
+    console.log(id);
     const tag = findTagsById(parseInt(id));
-    return (
-        <Layout>
-            <Link to={'/label'}>
-                <Topbar>
-                    <Icons name={'left'}/>
-                    <span>编辑标签</span>
-                    <Icons name={''}/>
-                </Topbar>
-            </Link>
-            <InputWrapper>
-                <Input label='标签名' type="text" placeholder="请输入标签名" value={tag.name}
-                       onChange={(event) => {
-                           updateTags(tag.id, {name: event.target.value})
-                       }}
-                />
-            </InputWrapper>
-            <WhiteSpace/>
-            <WhiteSpace/>
-            <WhiteSpace/>
-            <WhiteSpace/>
-            <WhiteSpace/>
-            <WhiteSpace/>
-            <Center>
-                <Button>删除标签</Button>
-            </Center>
-        </Layout>
-    );
+    if (tag) {
+        return (
+            <Layout>
+                <Link to={'/label'}>
+                    <Topbar>
+                        <Icons name={'left'}/>
+                        <span>编辑标签</span>
+                        <Icons name={''}/>
+                    </Topbar>
+                </Link>
+                <InputWrapper>
+                    <Input label='标签名' type="text" placeholder="请输入标签名" value={tag.name}
+                           onChange={(event) => {
+                               updateTags(tag.id, {name: event.target.value})
+                           }}
+                    />
+                </InputWrapper>
+                <WhiteSpace/>
+                <WhiteSpace/>
+                <WhiteSpace/>
+                <WhiteSpace/>
+                <WhiteSpace/>
+                <WhiteSpace/>
+                <Center>
+                    <Button onClick={() => {
+                        deleteTags(tag.id)
+                    }}>删除标签</Button>
+                </Center>
+            </Layout>
+        );
+    } else {
+        return <div>标签不存在</div>
+    }
 };
 
 export default LabelEdit;
