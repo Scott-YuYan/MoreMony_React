@@ -1,8 +1,8 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import createId from "lib/createId";
-import {useUpdate} from "./lib/useUpdate";
+import {useUpdate} from "./useUpdate";
 
-const useTags = () => {//封装一个自定义的Hook接口
+const useStage = () => {//封装一个自定义的Hook接口
     const [tags, setTags] = useState<{ id: number; name: string }[]>([]);
     useEffect(() => {
         let localStorageTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
@@ -59,4 +59,4 @@ const useTags = () => {//封装一个自定义的Hook接口
         addTags: addTags
     }
 }
-export default useTags;
+export default useStage;

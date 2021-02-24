@@ -1,5 +1,5 @@
 import React from "react";
-import useState from 'useStage';
+import useState from 'hooks/useStage';
 import {TagSectionWrapper} from "./Wrapper/TagSectionWrapper";
 import createId from "lib/createId";
 

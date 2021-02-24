@@ -5,11 +5,13 @@ import TagsSection from "./money/TagsSection";
 import NotesSection from "./money/NotesSection";
 import CategorySection from "./money/CategorySection";
 import NumberPadSection from "./money/NumberPadSection";
+import {useRecords} from "../hooks/useRecord";
 
 const MyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
 `
+
 type Category = '-' | '+';
 
 function Money() {
@@ -23,6 +25,10 @@ function Money() {
         setSelected({
             ...selected, ...obj
         })
+    };
+    const {records, addRecord} = useRecords();
+    const onSubmit = () => {
+        addRecord(selected)
     }
     return (
         <MyLayout>
@@ -41,6 +47,7 @@ function Money() {
                 onchange({amount: amount})
             }}
                               onOk={() => {
+                                  onSubmit();
                               }}
             />
         </MyLayout>

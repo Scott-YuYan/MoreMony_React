@@ -1,5 +1,5 @@
 import React from "react";
-import useTags from "../useStage";
+import useTags from "../hooks/useStage";
 import {useParams} from "react-router-dom";
 import Layout from "../components/Layout";
 import Icons from "../components/Icons";

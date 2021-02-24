@@ -1,15 +1,15 @@
 import Layout from "../components/Layout";
-import React from "react";
-import useState from "useStage";
+import React, {useState} from "react";
 import Icons from "../components/Icons";
 import WhiteSpace from "../components/WhiteSpace";
 import Center from "../components/Center";
 import Button from "../components/Button";
 import {Link} from "react-router-dom";
 import LabelWrapper from "./money/Wrapper/LabelWrapper";
+import useStage from "../hooks/useStage";
 
 function Label() {
-    const {tagIds, addTags} = useState();
+    const {tagIds, addTags} = useStage();
     return (
         <Layout>
             <LabelWrapper>
