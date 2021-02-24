@@ -13,7 +13,7 @@ const LabelWrapper = styled.ol`
   > input {
     display: block;
     width: 100%;
-    height: 72px;
+    height: 44px;
     font-size: 16px;
     background: none;
     border: none;

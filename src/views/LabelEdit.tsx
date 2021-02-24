@@ -8,9 +8,9 @@ import Icons from "../components/Icons";
 import {Link} from "react-router-dom";
 import Button from "../components/Button";
 import styled from "styled-components";
-import {NotesSectionWrapper} from "./money/Wrapper/NotesSectionWrapper";
 import Center from "../components/Center";
 import WhiteSpace from "../components/WhiteSpace";
+import Input from "../components/Input";
 
 type Params = {
     id: string;
@@ -22,6 +22,13 @@ const Topbar = styled.header`
   align-items: center;
   line-height: 20px;
   padding: 14px 0;
+  background-color: white;
+`
+
+const InputWrapper = styled.div`
+  background: white;
+  padding: 0 16px;
+  margin-top: 16px;
 `
 
 const LabelEdit: React.FunctionComponent = (props) => {
@@ -37,12 +44,9 @@ const LabelEdit: React.FunctionComponent = (props) => {
                     <Icons name={''}/>
                 </Topbar>
             </Link>
-            <NotesSectionWrapper>
-                <label>
-                    <span>标签名：</span>
-                    <input type='text' placeholder="输入标签名"/>
-                </label>
-            </NotesSectionWrapper>
+            <InputWrapper>
+                <Input label='标签名' type="text" placeholder="请输入标签名" value={tag.name}/>
+            </InputWrapper>
             <WhiteSpace/>
             <WhiteSpace/>
             <WhiteSpace/>
