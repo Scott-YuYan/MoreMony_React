@@ -32,7 +32,7 @@ const InputWrapper = styled.div`
 `
 
 const LabelEdit: React.FunctionComponent = (props) => {
-    const {findTagsById} = useTags();
+    const {findTagsById, updateTags} = useTags();
     let {id} = useParams<Params>();
     const tag = findTagsById(parseInt(id));
     return (
@@ -45,7 +45,11 @@ const LabelEdit: React.FunctionComponent = (props) => {
                 </Topbar>
             </Link>
             <InputWrapper>
-                <Input label='标签名' type="text" placeholder="请输入标签名" value={tag.name}/>
+                <Input label='标签名' type="text" placeholder="请输入标签名" value={tag.name}
+                       onChange={(event) => {
+                           updateTags(tag.id, {name: event.target.value})
+                       }}
+                />
             </InputWrapper>
             <WhiteSpace/>
             <WhiteSpace/>
