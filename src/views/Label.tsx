@@ -1,7 +1,6 @@
 import Layout from "../components/Layout";
 import React from "react";
 import useState from "useStage";
-import styled from "styled-components";
 import Icons from "../components/Icons";
 import WhiteSpace from "../components/WhiteSpace";
 import Center from "../components/Center";
@@ -10,7 +9,7 @@ import {Link} from "react-router-dom";
 import LabelWrapper from "./money/Wrapper/LabelWrapper";
 
 function Label() {
-    const {tagIds} = useState();
+    const {tagIds, addTags} = useState();
     return (
         <Layout>
             <LabelWrapper>
@@ -27,7 +26,7 @@ function Label() {
             <WhiteSpace/>
             <WhiteSpace/>
             <Center>
-                <Button>新增标签</Button>
+                <Button onClick={addTags}>新增标签</Button>
             </Center>
         </Layout>
     );
