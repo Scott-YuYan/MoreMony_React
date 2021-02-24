@@ -1,11 +1,8 @@
 import React from "react";
 import useTags from "../useStage";
-import {
-    useParams
-} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import Layout from "../components/Layout";
 import Icons from "../components/Icons";
-import {Link} from "react-router-dom";
 import Button from "../components/Button";
 import styled from "styled-components";
 import Center from "../components/Center";
@@ -31,21 +28,22 @@ const InputWrapper = styled.div`
   margin-top: 16px;
 `
 
+const BackButton = () => {
+    window.history.back();
+}
+
 const LabelEdit: React.FunctionComponent = (props) => {
     const {findTagsById, updateTags, deleteTags} = useTags();
     let {id} = useParams<Params>();
-    console.log(id);
     const tag = findTagsById(parseInt(id));
     if (tag) {
         return (
             <Layout>
-                <Link to={'/label'}>
-                    <Topbar>
-                        <Icons name={'left'}/>
-                        <span>编辑标签</span>
-                        <Icons name={''}/>
-                    </Topbar>
-                </Link>
+                <Topbar>
+                    <Icons name={'left'} onClick={BackButton}/>
+                    <span>编辑标签</span>
+                    <Icons name={''}/>
+                </Topbar>
                 <InputWrapper>
                     <Input label='标签名' type="text" placeholder="请输入标签名" value={tag.name}
                            onChange={(event) => {
