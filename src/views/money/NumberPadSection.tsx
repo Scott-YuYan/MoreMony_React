@@ -8,17 +8,18 @@ type Props = {
 }
 
 const NumberPadSection: React.FunctionComponent<Props> = (props) => {
-    let output = props.value.toString();
+    const [output,_setOutput]  = useState(props.value.toString())
     const setOutput = (output: string) => {
-        let value;
+        let newOutput:string;
         if (output.length <= 0) {
-            value = 0
+            newOutput = '0'
         } else if (output.length >= 16) {
-            value = parseFloat(output.slice(0, 16));
+            newOutput = output.slice(0, 16);
         } else {
-            value = parseFloat(output);
+            newOutput = output;
         }
-        props.onchange(value);
+        _setOutput(newOutput);
+        props.onchange(parseFloat(newOutput));
     }
     const onClickButtonWrapper = (e: React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent;
@@ -44,7 +45,7 @@ const NumberPadSection: React.FunctionComponent<Props> = (props) => {
                     if (output.indexOf('.') >= 0) {
                         return;
                     } else {
-                        setOutput(output + text);
+                        setOutput(output + '.');
                     }
                     break;
                 case '删除':
