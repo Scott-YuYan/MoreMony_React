@@ -26,7 +26,6 @@ const NotesSection: React.FunctionComponent<Props> = (props) => {
             {/*受控组件*/}
             <Input label='备注' type='text' placeholder="在这里添加备注" value={props.value}
                    onChange={onChange}/>
-
         </NotesSectionWrapper>
     );
 }
