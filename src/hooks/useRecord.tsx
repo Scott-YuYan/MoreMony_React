@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
 import {useUpdate} from "./useUpdate";
+import getLocalTime from "../lib/getLocalTime";
+import dayjs from "dayjs";
 
 type RecordItem = {
     tagIds: number[],
@@ -27,8 +29,8 @@ export const useRecords = () => {
 
         const record = {
             ...partOfRecord,
-            createAt: ((new Date()).toISOString()),
-            updateAt: ((new Date()).toISOString()),
+            createAt: dayjs(getLocalTime()).format('YYYY年MM月DD日'),
+            updateAt: dayjs(getLocalTime()).format('YYYY年MM月DD日'),
         }
         setRecords([...records, record]);
         return true;

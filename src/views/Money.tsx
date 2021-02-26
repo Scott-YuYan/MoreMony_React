@@ -20,6 +20,9 @@ const defaultFormData = {
     category: '-' as Category,
     amount: 0,
 }
+const CategorySectionBackground = styled.div`
+  background: #c4c4c4;;
+`
 
 
 function Money() {
@@ -43,9 +46,11 @@ function Money() {
                 onchange({tagIds: tagIds})}/>
             <NotesSection value={selected.note} onchange={(note) =>
                 onchange({note: note})}/>
-            <CategorySection value={selected.category} onchange={(category) => {
-                onchange({category: category})
-            }}/>
+            <CategorySectionBackground>
+                <CategorySection value={selected.category} onchange={(category) => {
+                    onchange({category: category})
+                }}/>
+            </CategorySectionBackground>
             <NumberPadSection value={selected.amount} onchange={(amount) => {
                 onchange({amount: amount})
             }}

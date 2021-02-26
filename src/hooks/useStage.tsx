@@ -49,6 +49,16 @@ const useStage = () => {//封装一个自定义的Hook接口
             setTags([...tags, {id: createId(), name: newTagName}])
         }
     };
+
+    const getTagName = (id: number) => {
+        const tag = tags.filter(tag => tag.id === id)[0];
+        if (tag){
+            return tag.name
+        }else {
+            return ''
+        }
+    };
+
     return {
         tagIds: tags,
         setTags: setTags,
@@ -56,7 +66,8 @@ const useStage = () => {//封装一个自定义的Hook接口
         findTagIndexById: findTagIndexById,
         updateTags: updateTags,
         deleteTags: deleteTags,
-        addTags: addTags
+        addTags: addTags,
+        getTagName: getTagName
     }
 }
 export default useStage;
