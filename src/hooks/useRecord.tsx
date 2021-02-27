@@ -3,7 +3,7 @@ import {useUpdate} from "./useUpdate";
 import getLocalTime from "../lib/getLocalTime";
 import dayjs from "dayjs";
 
-type RecordItem = {
+ export type RecordItem = {
     tagIds: number[],
     note: string,
     category: "+" | "-",
@@ -29,8 +29,8 @@ export const useRecords = () => {
 
         const record = {
             ...partOfRecord,
-            createAt: dayjs(getLocalTime()).format('YYYY年MM月DD日'),
-            updateAt: dayjs(getLocalTime()).format('YYYY年MM月DD日'),
+            createAt: dayjs(getLocalTime()).format('YYYY-MM-DD'),
+            updateAt: dayjs(getLocalTime()).format('YYYY-MM-DD'),
         }
         setRecords([...records, record]);
         return true;
