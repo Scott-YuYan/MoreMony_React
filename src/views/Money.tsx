@@ -32,7 +32,7 @@ function Money() {
             ...selected, ...obj
         })
     };
-    const {records, addRecord, setRecord} = useRecords();
+    const {addRecord} = useRecords();
     const onSubmit = () => {
         if (addRecord(selected)) {
             alert("保存成功!");
@@ -40,8 +40,7 @@ function Money() {
         }
     }
     return (
-        <MyLayout>
-            {JSON.stringify(records)}
+        <MyLayout scrollTop={9999}>
             <TagsSection value={selected.tagIds} onchange={(tagIds) =>
                 onchange({tagIds: tagIds})}/>
             <NotesSection value={selected.note} onchange={(note) =>

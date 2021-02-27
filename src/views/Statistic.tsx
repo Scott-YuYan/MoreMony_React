@@ -37,9 +37,7 @@ function Statistic() {
     const selectedRecord = records.filter((record) => record.category === category)
 
     selectedRecord.map((record) => {
-        console.log("before" + record.createAt)
         const key = dayjs(record.createAt).format("YYYY-MM-DD");
-        console.log("after" + key)
         if (!(key in recordsHash)) {
             recordsHash[key] = [];
         }

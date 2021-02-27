@@ -14,7 +14,14 @@ const TagsSection: React.FunctionComponent<Props> = (props) => {
     const addTags = () => {
         const newTagName = window.prompt("请选择需要添加的标签");
         if (newTagName !== null) {
-            setTags([...tagIds, {id: createId(), name: newTagName}])
+            if (tagIds.filter((tag) =>
+                tag.name === newTagName
+            ).length === 0) {
+                setTags([...tagIds, {id: createId(), name: newTagName}])
+            } else {
+                alert("标签名'" + newTagName + "'已存在");
+                return;
+            }
         }
     };
     const onToggleTag = (tagId: number) => {
