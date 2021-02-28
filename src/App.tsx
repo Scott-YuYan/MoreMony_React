@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    BrowserRouter as Router, Redirect, Route, Switch,
+    BrowserRouter as Router, HashRouter, Redirect, Route, Switch,
 } from "react-router-dom";
 
 import NoMatch from "views/NoMatch";
@@ -13,22 +13,24 @@ function App() {
     return (
         <Router>
             <Switch>
-                <Route exact path="/label">
-                    <Label/>
-                </Route>
-                <Route exact path="/label/:id">
-                    <LabelEdit/>
-                </Route>
-                <Route exact path="/money">
-                    <Money/>
-                </Route>
-                <Route exact path="/statistic">
-                    <Statistic/>
-                </Route>
-                <Redirect exact from="/" to="statistic"/>
-                <Route path="*">
-                    <NoMatch/>
-                </Route>
+                <HashRouter>
+                    <Route exact path="/label">
+                        <Label/>
+                    </Route>
+                    <Route exact path="/label/:id">
+                        <LabelEdit/>
+                    </Route>
+                    <Route exact path="/money">
+                        <Money/>
+                    </Route>
+                    <Route exact path="/statistic">
+                        <Statistic/>
+                    </Route>
+                    <Redirect exact from="/" to="statistic"/>
+                    <Route path="*">
+                        <NoMatch/>
+                    </Route>
+                </HashRouter>
             </Switch>
         </Router>
     );
